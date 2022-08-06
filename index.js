@@ -53,3 +53,17 @@ fs.readFile('myFile.txt', (err, data) => {
 
 console.log('Hello');
  */
+
+const EventEmitter = require('events');
+
+const emitter = new EventEmitter();
+
+const startPeriod = require('./school');
+
+// Register a listener for bell ring event
+
+emitter.on('bellRinging', ({ period, text }) => {
+    console.log(`We need to fuck off cause the ${period} ${text}`);
+});
+
+startPeriod();
